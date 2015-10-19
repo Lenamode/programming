@@ -1,2 +1,2 @@
-# programming
+# Programming
 Basic procedural programming portfolio.
