@@ -1,0 +1,112 @@
+// Mathematics Program with a visual menu.
+
+program Project1;
+
+{$APPTYPE CONSOLE}
+
+{$R *.res}
+
+uses
+  System.SysUtils;
+
+var answer:string;     // Declares global variables.
+      num1:integer;
+      num2:integer;
+      num3:integer;
+
+
+    procedure MenuCall;      // Calls for the menu.
+    begin
+      writeln(' ');
+      writeln('Hello! Welcome to the program.');
+      writeln('Which of the menu options would you like to call?');
+      writeln(' ');
+      writeln('1: Add two numbers.');
+      writeln('2: Subtract two numbers');
+      writeln('3: Multiply two numbers.');
+      writeln('4: Divide two numbers.');
+      writeln('5: Exit the program.');
+      readln(answer);
+    end;
+
+    procedure DivNumbers;          // Divides the numbers.
+      var temp, no1, no2:integer;
+      begin
+        writeln('Enter a number.');
+        readln(no1);
+        writeln('Enter a second.');
+        readln(no2);
+        temp:= no1 DIV no2;
+        writeln('The answer is ',temp);
+      end;
+
+     procedure MulNumbers;                  // Multiplies the numbers.
+      var temp, no1, no2:integer;
+      begin
+        writeln('Enter a number.');
+        readln(no1);
+        writeln('Enter a second.');
+        readln(no2);
+        temp:= no1 * no2;
+        writeln('The answer is ',temp);
+      end;
+
+    procedure AddNumbers(num1,num2:integer);// Adds numbers, passes variable by reference.
+      var temp:integer;
+      begin
+        temp:= num1 + num2;
+        writeln('The answer is ',temp);
+      end;
+
+    procedure SubNumbers(var num1, num2:integer);                   // Subtracts the numbers.
+      var temp:integer;
+      begin
+        temp:= num1 - num2;
+        writeln('The answer is ',temp);
+      end;
+
+
+    procedure Exit;               // Exits the program.
+      var ans:string;
+      begin
+        writeln('Are you sure you would like to leave the program?');
+        readln(ans);
+          if (ans = 'Yes') or (ans = 'y') then
+        readln
+      else
+        MenuCall;
+      end;
+
+begin
+repeat
+  MenuCall;
+  if (answer = '1') then
+    begin
+      writeln('Enter a number.');
+      readln(num1);
+      writeln('Enter your second number.');
+      readln(num2);
+      AddNumbers(num1,num2);
+    end
+  else if (answer = '2') then
+    begin
+      writeln('Enter a number.');
+      readln(num1);
+      writeln('Enter your second number.');
+      readln(num2);
+      SubNumbers(num1,num2);
+    end
+  else if (answer = '3') then
+    begin
+      MulNumbers;
+    end
+  else if (answer = '4') then
+    begin
+      DivNumbers;
+    end
+  else if (answer = '5') then
+    begin
+      Exit;
+    end;
+until answer = '5' ;
+end.
