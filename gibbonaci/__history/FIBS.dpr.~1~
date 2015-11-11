@@ -19,7 +19,6 @@ var
     i, iterations:integer;
 
 begin
-writeln('github.com/lenamode');
 writeln('Hey you, this is a program written for @duck over at C16.');
 writeln('How many fibbonaci numbers would you like to print?');
 readln(iterations);
